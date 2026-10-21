@@ -230,7 +230,9 @@ export const translations = {
       heroTag: 'WHAT SUSALI HELPS CONNECT',
       heroTitle: 'Connected Support Across Your',
       heroAccent: 'Healthcare Journey.',
-      heroDesc: 'From the first patient profile to hospital appointments, treatment documents, and future care, SUSALI brings important coordination and information-related services together.',
+      // heroDesc: 'Fro the first patient profile to hospital appointments, treatment documents, and future care, SUSALI brings important coordination and information-related services together.',
+
+heroDesc: 'From patient registration and hospital appointment coordination to medical records and ongoing care, SUSALI brings essential healthcare services together in one coordinated journey.',
 
       philosophyKicker: 'OUR SERVICE PHILOSOPHY',
       philosophyTitle1: 'One Patient. Many',
@@ -682,7 +684,9 @@ export const translations = {
       heroTag: 'SUSALI ఏ విధంగా తోడ్పడుతుంది?',
       heroTitle: 'మీ ఆరోగ్య ప్రయాణంలోని ప్రతి దశలో',
       heroAccent: 'అనుసంధానం.',
-      heroDesc: 'మొదటి పేషెంట్ ప్రొఫైల్ నుంచి ఆసుపత్రి అపాయింట్‌మెంట్, చికిత్స పత్రాలు, భవిష్యత్తు సందర్శనల వరకు ముఖ్యమైన సమాచార, సమన్వయ సేవలను SUSALI ఒకే అనుసంధాన అనుభవంగా తీసుకువస్తుంది.',
+      // heroDesc: 'మొదటి పేషెంట్ ప్రొఫైల్ నుంచి ఆసుపత్రి అపాయింట్‌మెంట్, చికిత్స పత్రాలు, భవిష్యత్తు సందర్శనల వరకు ముఖ్యమైన సమాచార, సమన్వయ సేవలను SUSALI ఒకే అనుసంధాన అనుభవంగా తీసుకువస్తుంది.',
+
+heroDesc: 'రోగుల నమోదు, ఆసుపత్రి అపాయింట్‌మెంట్ల సమన్వయం నుంచి వైద్య రికార్డులు, నిరంతర ఆరోగ్య సంరక్షణ వరకు, అవసరమైన ఆరోగ్య సేవలన్నింటినీ SUSALI ఒకే సమన్వయంతో కూడిన ఆరోగ్య ప్రయాణంగా అనుసంధానిస్తుంది.',
 
       philosophyKicker: 'మా సేవల వెనుక ఆలోచన',
       philosophyTitle1: 'ఒక రోగి.',
