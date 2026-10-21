@@ -9,6 +9,9 @@ import { LanguageProvider } from '@/context/LanguageContext';
 // Google Analytics 4
 import { GoogleAnalytics } from '@next/third-parties/google';
 
+// Microsoft Clarity
+import Script from 'next/script';
+
 import './globals.css';
 
 // =========================================================
@@ -16,6 +19,12 @@ import './globals.css';
 // =========================================================
 
 const GOOGLE_ANALYTICS_ID = 'G-62J2X7S21T';
+
+// =========================================================
+// MICROSOFT CLARITY
+// =========================================================
+
+const MICROSOFT_CLARITY_ID = 'z1b28tv5sa';
 
 // =========================================================
 // WEBSITE METADATA
@@ -45,27 +54,49 @@ export default function RootLayout({ children }) {
     <html lang="en" data-scroll-behavior="smooth">
       <body>
         <LanguageProvider>
-          {/* Reset scroll position on route changes */}
+          {/* Scroll reset */}
           <ScrollReset />
 
-          {/* Optional scroll progress indicator */}
+          {/* Optional scroll progress */}
           {/* <ScrollProgress /> */}
 
           {/* Website Header */}
           <Header />
 
-          {/* Main Page Content */}
+          {/* Main Content */}
           <main>{children}</main>
 
           {/* Website Footer */}
           <Footer />
         </LanguageProvider>
 
-        {/* =================================================
+        {/* ==========================================
             GOOGLE ANALYTICS 4
-            Measurement ID: G-62J2X7S21T
-           ================================================= */}
+           ========================================== */}
+
         <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />
+
+        {/* ==========================================
+            MICROSOFT CLARITY
+           ========================================== */}
+
+        <Script
+          id="microsoft-clarity-script"
+          strategy="afterInteractive"
+        >
+          {`
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){
+                    (c[a].q=c[a].q||[]).push(arguments)
+                };
+                t=l.createElement(r);
+                t.async=1;
+                t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];
+                y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "${MICROSOFT_CLARITY_ID}");
+          `}
+        </Script>
       </body>
     </html>
   );
