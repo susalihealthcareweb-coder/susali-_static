@@ -2,7 +2,7 @@ export const site = {
   brand: 'SUSALI',
   tagline: 'Bridging the Gap Between Patients and Doctors.',
   description: 'Connecting people. Empowering healthcare. Because every healthcare journey deserves the right connection.',
-  email: '',
+  email: 'support@susalihealthcareservices.in',
   phone: '',
   whatsapp: '',
   address: '',
