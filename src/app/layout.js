@@ -6,6 +6,9 @@ import ScrollReset from '@/components/ScrollReset';
 
 import { LanguageProvider } from '@/context/LanguageContext';
 
+// Business information
+import { site } from '@/data/site';
+
 // Google Analytics 4
 import { GoogleAnalytics } from '@next/third-parties/google';
 
@@ -27,22 +30,100 @@ const GOOGLE_ANALYTICS_ID = 'G-62J2X7S21T';
 const MICROSOFT_CLARITY_ID = 'z1b28tv5sa';
 
 // =========================================================
-// WEBSITE METADATA
+// WEBSITE SEO METADATA
 // =========================================================
 
 export const metadata = {
+  metadataBase: new URL(site.url),
+
+  applicationName: site.companyName,
+
   title: {
-    default: 'SUSALI | Healthcare, Better Connected',
-    template: '%s | SUSALI',
+    default: site.seoTitle,
+    template: '%s | SUSALI Healthcare Services',
   },
 
-  description:
-    'SUSALI — Better Affiliations. Better Healthcare.',
+  description: site.seoDescription,
+
+  keywords: [
+    'SUSALI',
+    'SUSALI Healthcare',
+    'SUSALI Healthcare Services',
+    'SUSALI Health Care Services',
+    'patient healthcare coordination',
+    'hospital appointment assistance',
+    'patient doctor connection',
+    'healthcare referrals',
+    'digital health profiles',
+    'digital medical records',
+    'hospital coordination',
+    'continued healthcare',
+  ],
+
+  authors: [
+    {
+      name: site.companyName,
+    },
+  ],
+
+  creator: site.companyName,
+  publisher: site.companyName,
+
+  category: 'healthcare',
+
+  // ==========================================
+  // SEARCH ENGINE CRAWLING
+  // ==========================================
 
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
   },
+
+  // ==========================================
+  // OPEN GRAPH
+  // ==========================================
+
+  openGraph: {
+    type: 'website',
+    locale: 'en_IN',
+    siteName: site.companyName,
+    title: site.seoTitle,
+    description: site.seoDescription,
+  },
+
+  // ==========================================
+  // SOCIAL SHARING
+  // ==========================================
+
+  twitter: {
+    card: 'summary',
+    title: site.seoTitle,
+    description: site.seoDescription,
+  },
+};
+
+// =========================================================
+// ORGANIZATION STRUCTURED DATA
+// =========================================================
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+
+  name: site.companyName,
+  legalName: site.legalName,
+
+  url: site.url,
+  logo: `${site.url}/logo.png`,
+
+  email: site.email,
+
+  description: site.seoDescription,
 };
 
 // =========================================================
@@ -53,32 +134,51 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <body>
+        {/* ========================================
+            ORGANIZATION STRUCTURED DATA
+           ======================================== */}
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              organizationSchema
+            ).replace(/</g, '\\u003c'),
+          }}
+        />
+
+        {/* ========================================
+            WEBSITE LAYOUT
+           ======================================== */}
+
         <LanguageProvider>
-          {/* Scroll reset */}
+          {/* Reset scroll after navigation */}
           <ScrollReset />
 
           {/* Optional scroll progress */}
           {/* <ScrollProgress /> */}
 
-          {/* Website Header */}
+          {/* Header */}
           <Header />
 
           {/* Main Content */}
           <main>{children}</main>
 
-          {/* Website Footer */}
+          {/* Footer */}
           <Footer />
         </LanguageProvider>
 
-        {/* ==========================================
+        {/* ========================================
             GOOGLE ANALYTICS 4
-           ========================================== */}
+           ======================================== */}
 
-        <GoogleAnalytics gaId={GOOGLE_ANALYTICS_ID} />
+        <GoogleAnalytics
+          gaId={GOOGLE_ANALYTICS_ID}
+        />
 
-        {/* ==========================================
+        {/* ========================================
             MICROSOFT CLARITY
-           ========================================== */}
+           ======================================== */}
 
         <Script
           id="microsoft-clarity-script"
@@ -86,14 +186,14 @@ export default function RootLayout({ children }) {
         >
           {`
             (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){
-                    (c[a].q=c[a].q||[]).push(arguments)
-                };
-                t=l.createElement(r);
-                t.async=1;
-                t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];
-                y.parentNode.insertBefore(t,y);
+              c[a]=c[a]||function(){
+                (c[a].q=c[a].q||[]).push(arguments);
+              };
+              t=l.createElement(r);
+              t.async=1;
+              t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];
+              y.parentNode.insertBefore(t,y);
             })(window, document, "clarity", "script", "${MICROSOFT_CLARITY_ID}");
           `}
         </Script>
