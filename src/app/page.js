@@ -31,6 +31,7 @@ import ScrollReveal, {
 } from '@/components/ScrollReveal';
 
 import MagneticButton from '@/components/MagneticButton';
+import HeroOrgans from '@/components/HeroOrgans';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Home() {
@@ -117,7 +118,10 @@ export default function Home() {
               </ScrollReveal>
             </div>
 
-            <div className="og-hero-visual-space" />
+            {/* NEW: ANIMATED 3D ORGANS */}
+            <div className="og-hero-visual-space">
+              <HeroOrgans />
+            </div>
           </div>
 
           <HeroVisual />

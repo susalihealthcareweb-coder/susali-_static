@@ -1121,3 +1121,374 @@ html[lang="te"] .og-card-header-styled strong {
     line-height: 1.6 !important;
   }
 }
+
+/* ==========================================
+   SUSALI HEALTHCARE - 3D ORGANS HERO
+   ========================================== */
+
+/* Hero layout */
+.og-hero-v2 .og-hero-grid-v2 {
+  min-height: 515px;
+  gap: 1.5rem;
+}
+
+.og-hero-v2 .og-hero-visual-space {
+  display: block;
+  position: relative;
+  height: 510px;
+  min-height: 510px;
+  min-width: 0;
+}
+
+/* Main 3D area */
+.susali-organ-stage {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  overflow: hidden;
+  border-radius: 34px;
+
+  background:
+    radial-gradient(
+      circle at 56% 45%,
+      rgba(255,255,255,.66),
+      transparent 60%
+    );
+}
+
+/* Ambient glow */
+.susali-organ-aura {
+  position: absolute;
+  inset: 14% 5% 12%;
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(216,193,232,.38) 0%,
+      rgba(190,218,244,.20) 48%,
+      transparent 72%
+    );
+
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+/* Circular medical rings */
+.susali-organ-ring {
+  position: absolute;
+  left: 50%;
+  top: 47%;
+  width: 76%;
+  aspect-ratio: 1;
+
+  border: 1px solid rgba(149,120,178,.18);
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.susali-organ-ring-one {
+  box-shadow:
+    0 0 0 27px rgba(255,255,255,.12),
+    inset 0 0 40px rgba(184,163,211,.06);
+}
+
+.susali-organ-ring-two {
+  width: 56%;
+  border-style: dashed;
+  border-color: rgba(145,140,201,.20);
+}
+
+/* WebGL canvas */
+.susali-organ-webgl {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+/* Floating organ images */
+.susali-organ-placeholder {
+  position: absolute;
+  z-index: 2;
+
+  display: grid;
+  place-items: center;
+
+  border: 0;
+  background: transparent;
+
+  filter:
+    drop-shadow(
+      0 16px 18px rgba(107,70,120,.17)
+    );
+
+  transform: translate(-50%, -50%);
+
+  animation:
+    susali-organ-float
+    6s ease-in-out infinite;
+
+  pointer-events: none;
+}
+
+.susali-organ-image {
+  object-fit: contain;
+}
+
+/* HEART */
+.susali-organ-placeholder-heart {
+  width: 20%;
+  aspect-ratio: 497 / 668;
+  left: 53%;
+  top: 20%;
+}
+
+/* KIDNEYS */
+.susali-organ-placeholder-kidney {
+  width: 25%;
+  aspect-ratio: 622 / 522;
+  left: 19%;
+  top: 74%;
+  animation-delay: -2s;
+}
+
+/* LIVER */
+.susali-organ-placeholder-liver {
+  width: 25%;
+  aspect-ratio: 633 / 497;
+  left: 81%;
+  top: 72%;
+  animation-delay: -3s;
+}
+
+/* Labels */
+.susali-organ-caption {
+  position: absolute;
+  z-index: 4;
+
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.95);
+
+  padding: 8px 15px;
+
+  background: rgba(255,255,255,.83);
+
+  box-shadow:
+    0 9px 24px rgba(105,83,135,.09);
+
+  backdrop-filter: blur(12px);
+
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: .03em;
+  line-height: 1.2;
+  color: #5d5172;
+
+  pointer-events: none;
+}
+
+/* .caption-heart {
+  top: 11%;
+  left: 68%;
+}
+
+.caption-kidney {
+  left: 7%;
+  bottom: 11%;
+}
+
+.caption-liver {
+  right: 4%;
+  bottom: 12%;
+} */
+
+/* Small decorative particles */
+.susali-organ-spark {
+  position: absolute;
+  z-index: 1;
+
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+
+  background: #cca7dd;
+
+  box-shadow:
+    0 0 0 7px rgba(210,169,227,.09),
+    0 0 14px rgba(157,112,204,.3);
+}
+
+.spark-one {
+  left: 15%;
+  top: 30%;
+}
+
+.spark-two {
+  right: 13%;
+  top: 19%;
+  width: 5px;
+  height: 5px;
+}
+
+.spark-three {
+  left: 40%;
+  bottom: 13%;
+  width: 5px;
+  height: 5px;
+}
+
+/* Floating animation */
+@keyframes susali-organ-float {
+  0%, 100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -12px;
+  }
+}
+
+/* ==========================================
+   EXISTING GLASS CARD REPOSITIONING
+   ========================================== */
+
+.og-hero-v2 .og-hero-visual-container {
+  position: relative;
+  display: grid;
+
+  grid-template-columns:
+    1fr 1.28fr .87fr;
+
+  align-items: stretch;
+  gap: 13px;
+
+  width: 100%;
+  height: auto;
+  margin: 0 0 10px;
+}
+
+.og-hero-v2 .og-card-glass {
+  position: relative;
+  inset: auto;
+
+  width: 100%;
+  min-width: 0;
+  height: auto;
+}
+
+.og-hero-v2 .og-card-left-float,
+.og-hero-v2 .og-card-center-hero,
+.og-hero-v2 .og-card-right-float {
+  left: auto;
+  right: auto;
+  bottom: auto;
+
+  width: 100%;
+  transform: none;
+}
+
+.og-hero-v2 .og-card-center-hero {
+  padding: 17px 19px;
+}
+
+.og-hero-v2 .og-card-left-float {
+  padding: 15px;
+}
+
+.og-hero-v2 .og-card-right-float {
+  padding: 14px;
+}
+
+.og-hero-v2 .og-pills-flex,
+.og-hero-v2 .og-subpills-row {
+  flex-wrap: wrap;
+}
+
+.og-hero-v2 .og-3d-orb {
+  display: none;
+}
+
+/* ==========================================
+   TABLET
+   ========================================== */
+
+@media (max-width: 1100px) {
+  .og-hero-v2 .og-hero-visual-container {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .og-hero-v2 .og-card-right-float {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 850px) {
+  .og-hero-v2 .og-hero-grid-v2 {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+  }
+
+  .og-hero-v2 .og-hero-visual-space {
+    display: block;
+    width: 100%;
+    height: 430px;
+    min-height: 430px;
+  }
+
+  .og-hero-v2 .og-hero-content-left {
+    max-width: 740px;
+  }
+
+  .og-hero-v2 .og-hero-visual-container {
+    margin-top: 2px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+   ========================================== */
+
+@media (max-width: 620px) {
+  .og-hero-v2 {
+    padding-bottom: 24px;
+  }
+
+  .og-hero-v2 .og-hero-visual-space {
+    height: 340px;
+    min-height: 340px;
+  }
+
+  .susali-organ-stage {
+    border-radius: 23px;
+  }
+
+  .susali-organ-caption {
+    font-size: 9px;
+    padding: 6px 10px;
+  }
+
+  .og-hero-v2 .og-hero-visual-container {
+    grid-template-columns:
+      minmax(0, 1fr);
+
+    gap: 10px;
+  }
+
+  .og-hero-v2 .og-card-right-float {
+    grid-column: auto;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .susali-organ-placeholder {
+    animation: none;
+  }
+}
